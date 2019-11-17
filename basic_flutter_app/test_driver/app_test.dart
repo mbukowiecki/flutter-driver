@@ -8,7 +8,6 @@ void main() {
   {
     FlutterDriver driver;
 
-
     setUpAll(() async {
       driver = await FlutterDriver.connect();
     });
@@ -36,6 +35,17 @@ void main() {
       await dogsListClass.goToDogDetails();
       await dogDetails.slideLeft();
       await dogDetails.slideRight();
+      await dogDetails.clickBackArrow();
+    });
+
+    test('Rate dog', () async {
+      DogsListClass dogsListClass = new DogsListClass(driver);
+      DogDetails dogDetails = new DogDetails(driver);
+
+      await dogsListClass.goToDogDetails();
+      await dogDetails.slideLeft();
+      await dogDetails.clickSubmit();
+      await dogDetails.assertThatErrorMessageAppears();
     });
   });
 }

@@ -1,5 +1,7 @@
 import 'package:flutter_driver/flutter_driver.dart';
 
+import 'dog_details.dart';
+
 
 class DogsListClass{
 
@@ -14,8 +16,8 @@ class DogsListClass{
   final plusIcon = find.byTooltip('plusik');
   final nameInput = find.byValueKey('name');
   final slider = find.byValueKey('slider');
-  final locatioInput = find.byValueKey('location');
-  final desriptionInput = find.byValueKey('desription');
+  final locationInput = find.byValueKey('location');
+  final descriptionInput = find.byValueKey('desription');
 
 
   Future<void> clickPlusIcon() async{
@@ -32,16 +34,25 @@ class DogsListClass{
   }
 
   Future<void> enterDogLocation(String location) async {
-    await _driver.tap(locatioInput);
+    await _driver.tap(locationInput);
     await _driver.enterText(location);
   }
 
   Future<void> enterDogDescription(String description) async {
-    await _driver.tap(desriptionInput);
+    await _driver.tap(descriptionInput);
     await _driver.enterText(description);
   }
 
   Future<void> clickSubmitButton() async{
     await _driver.tap(submit);
+  }
+
+  Future<DogDetails> submitDog() async{
+    await clickPlusIcon();
+    await enterDogName("Czarek");
+    await enterDogLocation("Krakow");
+    await enterDogDescription("Elo");
+    await clickSubmitButton();
+    return DogDetails(_driver);
   }
 }

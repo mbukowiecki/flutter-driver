@@ -143,6 +143,7 @@ class _DogDetailPageState extends State<DogDetailPage> {
   Widget get submitRatingButton {
     return new RaisedButton(
       onPressed: updateRating,
+      key: ValueKey('submit'),
       child: new Text('Submit'),
       color: Colors.indigoAccent,
     );
@@ -181,6 +182,8 @@ class _DogDetailPageState extends State<DogDetailPage> {
     return new Scaffold(
       backgroundColor: Colors.black87,
       appBar: new AppBar(
+        key: ValueKey('back'),
+
         backgroundColor: Colors.black87,
         title: new Text('Meet ${widget.dog.name}'),
       ),
