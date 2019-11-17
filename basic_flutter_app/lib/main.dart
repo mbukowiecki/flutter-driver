@@ -62,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           new IconButton(
             icon: new Icon(Icons.add),
+            tooltip: "plusik",
             onPressed: () => _showNewDogForm(),
           ),
         ],

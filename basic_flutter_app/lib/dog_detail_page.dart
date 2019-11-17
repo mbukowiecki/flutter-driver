@@ -119,6 +119,7 @@ class _DogDetailPageState extends State<DogDetailPage> {
                 flex: 1,
                 child: new Slider(
                   activeColor: Colors.indigoAccent,
+                  key: ValueKey('slider'),
                   min: 0.0,
                   max: 15.0,
                   onChanged: (newRating) => updateSlider(newRating),
