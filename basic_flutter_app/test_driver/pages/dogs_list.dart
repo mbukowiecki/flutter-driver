@@ -22,6 +22,10 @@ class DogsListClass{
     await _driver.tap(plusIcon);
   }
 
+  Future<void> goToDogDetails() async{
+    await _driver.tap(ruby);
+  }
+
   Future<void> enterDogName(String name) async {
     await _driver.tap(nameInput);
     await _driver.enterText(name);
