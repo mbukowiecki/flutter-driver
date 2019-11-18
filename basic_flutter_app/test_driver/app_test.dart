@@ -4,7 +4,7 @@ import 'pages/dog_details.dart';
 import 'pages/dogs_list.dart';
 
 void main() {
-  group('Counter App', ()
+  group('App', ()
   {
     FlutterDriver driver;
 
@@ -18,7 +18,7 @@ void main() {
       }
     });
 
-    test('Adding new dog...', () async {
+    test('Add new dog...', () async {
       DogsListClass dogsListClass = new DogsListClass(driver);
 
       await dogsListClass.clickPlusIcon();

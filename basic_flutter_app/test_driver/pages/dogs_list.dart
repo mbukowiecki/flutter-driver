@@ -1,5 +1,6 @@
 import 'package:flutter_driver/flutter_driver.dart';
 
+import '../utils/actions.dart';
 import 'dog_details.dart';
 
 
@@ -21,6 +22,7 @@ class DogsListClass{
 
 
   Future<void> clickPlusIcon() async{
+    await Actions.takeScreenshot(_driver, 'screenshots/dog_list.png');
     await _driver.tap(plusIcon);
   }
 
@@ -29,6 +31,7 @@ class DogsListClass{
   }
 
   Future<void> enterDogName(String name) async {
+    await Actions.takeScreenshot(_driver, 'screenshots/dog_details.png');
     await _driver.tap(nameInput);
     await _driver.enterText(name);
   }
@@ -44,6 +47,7 @@ class DogsListClass{
   }
 
   Future<void> clickSubmitButton() async{
+    await Actions.takeScreenshot(_driver, 'screenshots/add_new_dog.png');
     await _driver.tap(submit);
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter_driver/flutter_driver.dart';
 
+import '../utils/actions.dart';
+
 class DogDetails{
 
   FlutterDriver _driver;
@@ -23,6 +25,7 @@ class DogDetails{
 
   Future<void> slideLeft() async {
     await _driver.scroll(slider, -200, 0, Duration(milliseconds: 500));
+    await Actions.takeScreenshot(_driver, 'screenshots/slided_left.png');
   }
 
   Future<void> slideRight() async {
@@ -30,6 +33,7 @@ class DogDetails{
   }
   
   Future<void> assertThatErrorMessageAppears() async {
+    await Actions.takeScreenshot(_driver, 'screenshots/error_message.png');
     await _driver.waitFor(error);
   }
 
